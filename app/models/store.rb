@@ -9,4 +9,10 @@ class Store < ApplicationRecord
     @city = attrs[:city]
     @distance = attrs[:distance]
   end
+
+  def self.stores(zipcode)
+    BestbuyService.stores(zipcode).map do |raw_store|
+      Store.new(raw_store)
+    end
+  end
 end
