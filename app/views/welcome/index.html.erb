@@ -1,1 +1,5 @@
 <h1>Welcome!</h1>
+<%= form_for :search, url: search_path do |t| %>
+  <%= t.text_field :zipcode %>
+  <%= t.submit :search %>
+<% end %>

@@ -1,0 +1,11 @@
+<h1>Search!</h1>
+<h3>Stores within 30 miles: <%= @presenter.total %></h3>
+<% @presenter.stores.each do |store| %>
+  <%= store.store_id %>
+  <%= store.store_type %>
+  <%= store.name %>
+  <%= store.address %>
+  <%= store.city %>
+  <%= store. distance %>
+  <br>
+<% end %>
