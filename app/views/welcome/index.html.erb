@@ -1,5 +1,10 @@
-<h1>Welcome!</h1>
+<div class="container-fluid text-center">
+  <div class="jumbotron bg-primary">
+    <h1>BestBuy Location Search</h1>
+    <p>Enter your zipcode below to see how many locations are within 30 miles</p>
+    </div>
 <%= form_for :search, url: search_path do |t| %>
   <%= t.text_field :zipcode %>
   <%= t.submit :search %>
 <% end %>
+</div>
