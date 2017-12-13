@@ -11,8 +11,12 @@ class Store < ApplicationRecord
   end
 
   def self.stores(zipcode)
-    BestbuyService.stores(zipcode).map do |raw_store|
+    BestbuyService.stores(zipcode)[:stores].map do |raw_store|
       Store.new(raw_store)
     end
+  end
+
+  def self.total(zipcode)
+    BestbuyService.stores(zipcode)[:total]
   end
 end

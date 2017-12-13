@@ -9,4 +9,7 @@ class Presenter
     Store.stores(zipcode)
   end
 
+  def total
+    Store.total(zipcode)
+  end
 end
