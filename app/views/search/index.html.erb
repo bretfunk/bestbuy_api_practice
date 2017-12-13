@@ -1,11 +1,29 @@
-<h1>Search!</h1>
-<h3>Stores within 30 miles: <%= @presenter.total %></h3>
-<% @presenter.stores.each do |store| %>
-  <%= store.store_id %>
-  <%= store.store_type %>
-  <%= store.name %>
-  <%= store.address %>
-  <%= store.city %>
-  <%= store. distance %>
-  <br>
-<% end %>
+<div class="container-fluid">
+  <div class="jumbotron bg-primary text-center">
+    <h1>BestBuy Locations</h1>
+    <p>There are <%= @presenter.total %> stores within 30 miles.</p>
+  </div>
+  <table width="100%" class="table table-hover table-responsive table-sm">
+    <thead class="thead-inverse table-active">
+      <tr>
+        <th>Store ID</th><th>Store Type</th><th>Store Name</th><th>Address</th><th>City</th><th>Distance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @presenter.stores.sort! { |a,b| a.distance <=> b.distance } %>
+      <% @presenter.stores.each do |store| %>
+        <tr>
+          <td><%= store.store_id %></td>
+          <td><%= store.store_type %></td>
+          <td><%= store.name %></td>
+          <td><%= store.address %></td>
+          <td><%= store.city %></td>
+          <td><%= store. distance %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <a href="/" class="btn btn-primary" role="button">Enter Another Zipcode</a>
+  </div>
+</div>
